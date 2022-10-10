@@ -1,22 +1,35 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import {Link} from "gatsby"
+import {scale} from "../utils/typography"
+import Footer from "../components/Footer"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({location, title, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
+      <h3 style={{...scale(0.75), marginBottom: 0, marginTop: 0}}>
+        <Link style={{
+          boxShadow: 'none',
+          textDecoration: 'none',
+        }} to="/">{title}</Link>
+      </h3>
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
+      <h3 style={{
+        fontFamily: "Montserrat, sans-serif",
+        marginTop: 0,
+        marginBottom: 0,
+        height: 42,
+        lineHeight: "2.625rem"
+      }}>
+        <Link style={{boxShadow: "none", textDecoration: "none"}} to="/">
+          {title}
+        </Link>
+      </h3>
     )
   }
 
@@ -25,9 +38,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <Footer />
       </footer>
     </div>
   )

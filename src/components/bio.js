@@ -6,8 +6,9 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import {useStaticQuery, graphql} from "gatsby"
+import profilePic from "../images/profile-pic.jpg"
+import {rhythm} from "../utils/typography"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -31,23 +32,31 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
+    <div className="bio" style={{display: "flex", marginBottom: rhythm(2)}}>
+      {/*<StaticImage*/}
+      {/*  className="bio-avatar"*/}
+      {/*  layout="fixed"*/}
+      {/*  formats={["auto", "webp", "avif"]}*/}
+      {/*  src={profilePic}*/}
+      {/*  width={50}*/}
+      {/*  height={50}*/}
+      {/*  quality={95}*/}
+      {/*  alt="Morning Star"*/}
+      {/*/>*/}
+
+      <img src={profilePic} alt="MorningStar" style={{
+        width: rhythm(2),
+        height: rhythm(2),
+        marginRight: rhythm(1 / 2),
+        marginBottom: 0,
+        borderRadius: '50%'
+      }}/>
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
+          Written by
           {` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
+            { author?.name }
           </a>
         </p>
       )}
