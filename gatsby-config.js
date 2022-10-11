@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Notes`,
+    subTitle: "Note for MorningStar",
     author: {
       name: `MorningStar`,
+      summary: `江畔何人初见月, 江月何年初照人`
     },
-    description: `江畔和人初见月`,
+    description: `A blog By MorningStar`,
     siteUrl: `https://notes.vercel.app/`,
     social: {
       twitter: `@morn_star`,
@@ -116,7 +118,7 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         // 网站icon
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/profile-pic.jpg`, // This path is relative to the root of the site.
       },
     },
   ],

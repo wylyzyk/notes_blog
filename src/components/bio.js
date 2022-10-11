@@ -33,17 +33,6 @@ const Bio = () => {
 
   return (
     <div className="bio" style={{display: "flex", marginBottom: rhythm(2)}}>
-      {/*<StaticImage*/}
-      {/*  className="bio-avatar"*/}
-      {/*  layout="fixed"*/}
-      {/*  formats={["auto", "webp", "avif"]}*/}
-      {/*  src={profilePic}*/}
-      {/*  width={50}*/}
-      {/*  height={50}*/}
-      {/*  quality={95}*/}
-      {/*  alt="Morning Star"*/}
-      {/*/>*/}
-
       <img src={profilePic} alt="MorningStar" style={{
         width: rhythm(2),
         height: rhythm(2),
@@ -52,13 +41,13 @@ const Bio = () => {
         borderRadius: '50%'
       }}/>
       {author?.name && (
-        <p>
-          Written by
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            { author?.name }
-          </a>
-        </p>
+        <div>
+          <p style={{maxWidth: 310}}>
+            Written by{` `}
+            <a href={`https://twitter.com/${social?.twitter || ``}`}>{author?.name}</a>.{` `}
+          </p>
+          <p style={{ fontFamily: "思源黑体", fontStyle: "italic" , fontSize: 15, marginTop: 5 }}>{ author?.summary}.</p>
+        </div>
       )}
     </div>
   )
